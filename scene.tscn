@@ -1,0 +1,54 @@
+[gd_scene load_steps=7 format=3 uid="uid://cf7xdtu533wxc"]
+
+[ext_resource type="Script" path="res://scene.gd" id="1_owlmg"]
+[ext_resource type="Script" path="res://playeer.gd" id="2_80irk"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_wvk44"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3D.gd" id="3_iyrlm"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_m2qhe"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_32u6m"]
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_owlmg")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.35629, 0, 1.80084)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+fov = 74.4371
+
+[node name="PhantomCameraHost" type="Node" parent="Camera3D"]
+script = ExtResource("2_wvk44")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(18.3367, 0, 0, 0, 0.360775, 0, 0, 0, 13.75, 0, -1.00252, 0)
+mesh = SubResource("BoxMesh_m2qhe")
+
+[node name="playeer" type="Node3D" parent="."]
+
+[node name="playss" type="MeshInstance3D" parent="playeer"]
+mesh = SubResource("BoxMesh_32u6m")
+skeleton = NodePath("../..")
+script = ExtResource("2_80irk")
+
+[node name="PhantomCamera3D" type="Node3D" parent="playeer/playss"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+script = ExtResource("3_iyrlm")
+priority_override = false
+priority = 10
+follow_mode = 6
+follow_target = NodePath("..")
+follow_parameters/spring_arm/spring_length = 2.0
+follow_parameters/spring_arm/collision_mask = 1
+follow_parameters/spring_arm/shape = null
+follow_parameters/spring_arm/margin = 0.01
+follow_parameters/target_offset = Vector3(0, 0, 0)
+follow_parameters/damping = false
+look_at_mode = 0
+tween_parameters = null
+tween_on_load = true
+inactive_update_mode = 0
+camera_3D_resource = null
