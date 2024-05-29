@@ -26,14 +26,14 @@ script = ExtResource("2_wvk44")
 transform = Transform3D(18.3367, 0, 0, 0, 0.360775, 0, 0, 0, 13.75, 0, -1.00252, 0)
 mesh = SubResource("BoxMesh_m2qhe")
 
-[node name="playeer" type="Node3D" parent="."]
+[node name="player" type="Node3D" parent="."]
 
-[node name="playss" type="MeshInstance3D" parent="playeer"]
+[node name="Mesh" type="MeshInstance3D" parent="player"]
 mesh = SubResource("BoxMesh_32u6m")
 skeleton = NodePath("../..")
 script = ExtResource("2_80irk")
 
-[node name="PhantomCamera3D" type="Node3D" parent="playeer/playss"]
+[node name="PhantomCamera3D" type="Node3D" parent="player/Mesh"]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
 script = ExtResource("3_iyrlm")
