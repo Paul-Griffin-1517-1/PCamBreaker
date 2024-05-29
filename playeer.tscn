@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://cvw4xymrhk5r6"]
+[gd_scene load_steps=3 format=3 uid="uid://cvw4xymrhk5r6"]
 
 [ext_resource type="Script" path="res://playeer.gd" id="1_31kdl"]
-[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3D.gd" id="2_3rs2g"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_32u6m"]
 
@@ -11,23 +10,3 @@
 mesh = SubResource("BoxMesh_32u6m")
 skeleton = NodePath("../..")
 script = ExtResource("1_31kdl")
-
-[node name="PhantomCamera3D" type="Node3D" parent="playss"]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
-script = ExtResource("2_3rs2g")
-priority_override = false
-priority = 10
-follow_mode = 6
-follow_target = NodePath("..")
-follow_parameters/spring_arm/spring_length = 2.0
-follow_parameters/spring_arm/collision_mask = 1
-follow_parameters/spring_arm/shape = null
-follow_parameters/spring_arm/margin = 0.01
-follow_parameters/target_offset = Vector3(0, 0, 0)
-follow_parameters/damping = false
-look_at_mode = 0
-tween_parameters = null
-tween_on_load = true
-inactive_update_mode = 0
-camera_3D_resource = null

@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://cf7xdtu533wxc"]
+
+[ext_resource type="Script" path="res://scene.gd" id="1_owlmg"]
+[ext_resource type="Script" path="res://playeer.gd" id="2_80irk"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_m2qhe"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_32u6m"]
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_owlmg")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.35629, 0, 1.80084)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+fov = 74.9537
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(18.3367, 0, 0, 0, 0.360775, 0, 0, 0, 13.75, 0, -1.00252, 0)
+mesh = SubResource("BoxMesh_m2qhe")
+
+[node name="player" type="Node3D" parent="."]
+
+[node name="Mesh" type="MeshInstance3D" parent="player"]
+mesh = SubResource("BoxMesh_32u6m")
+skeleton = NodePath("../..")
+script = ExtResource("2_80irk")
